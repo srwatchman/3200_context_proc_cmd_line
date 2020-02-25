@@ -1,0 +1,21 @@
+{% extends "layout.html" %}
+{% block body %}
+<h1>Admin</h1>
+<hr>
+<div >
+    <div class="item1">
+        <ul>
+            <li>{{render('admin_page_create_user',['admin'],'Create User Account',request)}}</li>
+            <li>Update User Account</li>
+            <li>List User Accounts</li>
+        </ul>
+    </div>
+    <div class="item2">
+        First Name:<input type="text" name="" id=""><br>
+        Last Name: <input type="text" name="" id=""><br>
+        Password: <input type="text" name="" id=""><br>
+        <button>Submit</button>
+    </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,25 @@
+{% extends "layout.html" %}  
+
+{% block body %}
+
+<h1>Home Page</h1>
+<p>Notice that when we spun up the server with the command:</p>
+<p>>python app.py &lt; some_param &gt;</p>
+<p>that latter parameter was added to app.config and is now
+    available in the app as well as the templates. Here we
+    render it in the template:</p>
+<p>{{config.my_role}}</p>
+
+<p>Here are some links.  They display based on the role:</p>
+<ul>
+    <li>{{render('course_page',['teacher','admin'],'Course Page',request)}}</li>
+    <li>{{render('admin_page',['admin'],'Admin Page',request)}}</li>
+</ul>
+
+<p>BTW here is the config (it's a dictionary):</p>
+<p>{{config}}</p>
+
+<p>And here is request:</p>
+<p>{{request}}</p>
+
+{% endblock %}

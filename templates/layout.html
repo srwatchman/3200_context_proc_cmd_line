@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <style>
+        .inactive {
+            background-color: white
+        }
+
+        .active {
+            background-color: aquamarine
+        }
+        ul{
+            list-style-type: none;
+            margin: 0;
+            padding-left: 0;
+            padding-right: 100px;
+            
+        }
+        li{
+            padding: 5px;
+        }
+        .item1, .item2{
+            float:left
+        }
+        .item2{
+            padding-left: 50px;
+
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+        {{render('home',['teacher','admin'],'Home Page',request)}} |
+        {{render('course_page',['teacher','admin'],'Course Page',request)}} |
+        {{render('admin_page',['admin'],'Admin Page',request)}}
+    </nav>
+    <hr>
+    {% block body %}
+    {% endblock %}
+</body>
+
+</html>
