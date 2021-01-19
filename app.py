@@ -8,6 +8,7 @@ app = Flask(__name__)
 @app.context_processor
 def utility_processor():
     def render(view,permitted_roles,linkname,request):
+        print("DEBUG",request, request.endpoint)
         if app.config.get('my_role') in permitted_roles:
 
             class_attribute = "class='inactive'"
