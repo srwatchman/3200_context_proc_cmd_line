@@ -10,10 +10,18 @@ def utility_processor():
     def render(view,permitted_roles,linkname,request):
         print("DEBUG",request, request.endpoint)
         if app.config.get('my_role') in permitted_roles:
-
+            print(request.path)
             class_attribute = "class='inactive'"
 
-            link = "<a " + class_attribute + " href='" + url_for(view) + "'>" + linkname + "</a>"
+            if url_for(view) == request.path:
+                class_attribute = "class='active"
+
+                if url_for(view) == '/admin_page/create_user':
+                    class_attribute = "class='active"
+            else:
+                class_attribute = "class='inactive'"
+
+            link = "<a " + class_attribute + " href='" + url_for(view) + "'>" + linkname + "</a>"    
             return Markup(link)
         else:
             return "A link would appear here but it requires " + str(permitted_roles) \
